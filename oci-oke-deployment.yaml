@@ -20,9 +20,9 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-          imagePullSecrets:
+      imagePullSecrets:
           # enter the name of the secret you created  
-          - name: ocir-dp-secret-sumit
+        - name: ocir-dp-secret-sumit
           livenessProbe:
             exec:
               command:
