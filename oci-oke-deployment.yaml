@@ -15,11 +15,14 @@ spec:
       containers:
         - name: sample-oke-canary-app
           # enter the path to your image, be sure to include the correct region prefix
-          image: us-ashburn-1.ocir.io/fahdabidiroottenancy/rahul/mr-devops/mr-devops-oke-canary-sample:${BUILDRUN_HASH}
+          image: lhr.ocir.io/lrhf0sphgopr/canary_image_repo/oci-canary-oke-app:${BUILDRUN_HASH}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
               protocol: TCP
+          imagePullSecrets:
+          # enter the name of the secret you created  
+          - name: ocir-dp-secret-sumit
           livenessProbe:
             exec:
               command:
