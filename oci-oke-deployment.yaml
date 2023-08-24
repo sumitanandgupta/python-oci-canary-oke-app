@@ -20,9 +20,6 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-      imagePullSecrets:
-          # enter the name of the secret you created  
-        - name: ocir-dp-secret-sumit
           livenessProbe:
             exec:
               command:
@@ -34,7 +31,9 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
-
+      imagePullSecrets:
+          # enter the name of the secret you created  
+        - name: ocir-dp-secret-sumit
 ---
 apiVersion: v1
 kind: Service
